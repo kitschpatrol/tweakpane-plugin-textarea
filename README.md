@@ -1,51 +1,7 @@
-# Textarea plugin for Tweakpane
-[![Version](http://img.shields.io/npm/v/@pangenerator/tweakpane-textarea-plugin.svg)](https://www.npmjs.org/package/@pangenerator/tweakpane-textarea-plugin)
+# `@kitschpatrol/tweakpane-textarea-plugin`
 
-Simple textarea (multiline text input) plugin for [Tweakpane][tweakpane].\
-![image](multiline2.gif)
+**This is a fork of [@pangenerator/tweakpane-textarea-plugin](https://github.com/panGenerator/tweakpane-textarea-plugin) with Tweakpane 4.0 compatibility. It is published to NPM for dependent projects.**
 
-## Installation
+Ideally, this fork will be made unecessary when a [PR on the upstream project](https://github.com/panGenerator/tweakpane-textarea-plugin/pull/4) is merged.
 
-### NPM
-
-`npm i @pangenerator/tweakpane-textarea-plugin`
-
-### Browser
-
-```html
-<script src="tweakpane.min.js"></script>
-<script src="tweakpane-textarea-plugin.min.js"></script>
-<script>
-  const pane = new Tweakpane.Pane();
-  pane.registerPlugin(TweakpaneTextareaPlugin);
-</script>
-```
-
-
-### Package
-
-```js
-import {Pane} from 'tweakpane';
-import * as TextareaPlugin from '@pangenerator/tweakpane-textarea-plugin';
-
-const pane = new Pane();
-pane.registerPlugin(TextareaPlugin);
-```
-
-## Usage
-
-```js
-const params = {
-  prop: 'Put your\nmultiline\ntext here!'
-};
-
-pane.addBinding(params, 'prop', {
-  view: 'textarea',
-  rows: 6,
-  placeholder: 'Type here...'
-}).on('change', (ev) => {
-  console.log(ev.value);
-});
-```
-
-[tweakpane]: https://github.com/cocopon/tweakpane/
+Please refer to the [upstream project](https://github.com/panGenerator/tweakpane-textarea-plugin) for documentation and other details.

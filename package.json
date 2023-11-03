@@ -1,5 +1,5 @@
 {
-  "name": "@pangenerator/tweakpane-textarea-plugin",
+  "name": "@kitschpatrol/tweakpane-textarea-plugin",
   "version": "2.0.0",
   "description": "Textarea plugin for Tweakpane",
   "main": "dist/tweakpane-textarea-plugin.js",
@@ -10,9 +10,12 @@
   "files": [
     "dist"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/panGenerator/tweakpane-textarea-plugin.git"
+    "url": "git+https://github.com/kitschpatrol/tweakpane-textarea-plugin.git"
   },
   "keywords": [
     "tweakpane",
