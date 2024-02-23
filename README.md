@@ -1,7 +1,7 @@
 # `@kitschpatrol/tweakpane-textarea-plugin`
 
-**This is a fork of [@pangenerator/tweakpane-textarea-plugin](https://github.com/panGenerator/tweakpane-textarea-plugin) with Tweakpane 4.0 compatibility. It is published to NPM for dependent projects.**
+_**Deprecated. Use [@pangenerator/tweakpane-textarea-plugin](https://github.com/panGenerator/tweakpane-textarea-plugin) instead.**_
 
-Ideally, this fork will be made unecessary when a [PR on the upstream project](https://github.com/panGenerator/tweakpane-textarea-plugin/pull/4) is merged.
+**This was a temporary fork of tweakpane-plugin-waveform with Tweakpane 4.0 compatibility for use with [svelte-tweakpane-ui](https://kitschpatrol.com/svelte-tweakpane-ui).**
 
-Please refer to the [upstream project](https://github.com/panGenerator/tweakpane-textarea-plugin) for documentation and other details.
+The fork is no longer necessary since the [PR on the upstream project](https://github.com/panGenerator/tweakpane-textarea-plugin/pull/4) has been merged.
