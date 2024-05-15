@@ -1,6 +1,6 @@
 {
   "name": "@kitschpatrol/tweakpane-textarea-plugin",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "Textarea plugin for Tweakpane 4",
   "main": "dist/tweakpane-textarea-plugin.js",
   "type": "module",
