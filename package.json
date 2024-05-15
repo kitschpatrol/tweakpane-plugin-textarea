@@ -1,7 +1,7 @@
 {
   "name": "@kitschpatrol/tweakpane-textarea-plugin",
-  "version": "2.0.3",
-  "description": "Textarea plugin for Tweakpane 4",
+  "version": "2.0.4",
+  "description": "Renamed to @kitschpatrol/tweakpane-plugin-textarea",
   "main": "dist/tweakpane-textarea-plugin.js",
   "type": "module",
   "types": "dist/types/index.d.ts",
@@ -17,13 +17,6 @@
     "type": "git",
     "url": "git+https://github.com/kitschpatrol/tweakpane-textarea-plugin.git"
   },
-  "keywords": [
-    "tweakpane",
-    "tweakpane-plugin",
-    "plugin",
-    "textarea",
-    "multiline"
-  ],
   "scripts": {
     "assets": "run-s clean build assets:version assets:zip",
     "assets:version": "node scripts/assets-append-version.js",
