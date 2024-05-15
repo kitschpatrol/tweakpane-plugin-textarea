@@ -3,12 +3,21 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Text Area Plugin Test</title>
+	<script type="importmap">
+		{
+			"imports": {
+				"tweakpane": "../node_modules/tweakpane/dist/tweakpane.js",
+				"@tweakpane/core": "../node_modules/@tweakpane/core/dist/index.js",
+				"tweakpane-plugin-textarea": "../dist/tweakpane-plugin-textarea.js"
+			}
+		}
+	</script>
 </head>
 <body style="background-color: rgb(203, 203, 203);">
 	<div id="output" style="white-space: pre-line" >Type in the text area to refresh content live...</div>
 	<script type="module">
-		import * as Tweakpane from '../node_modules/tweakpane/dist/tweakpane.js';
-		import * as TweakpaneTextareaPlugin from '../dist/tweakpane-textarea-plugin.js';
+		import * as Tweakpane from 'tweakpane';
+		import * as TweakpaneTextareaPlugin from 'tweakpane-plugin-textarea';
 
 		// Object with multiline text property
 		const params = {
