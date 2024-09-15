@@ -1,22 +1,17 @@
 {
 	"name": "@kitschpatrol/tweakpane-plugin-textarea",
 	"version": "2.0.0",
-	"description": "A fork of @pangenerator/tweakpane-textarea-plugin with build optimizations.",
-	"main": "dist/tweakpane-plugin-textarea.js",
 	"type": "module",
-	"types": "dist/types/index.d.ts",
+	"description": "A fork of @pangenerator/tweakpane-textarea-plugin with build optimizations.",
+	"repository": "github:kitschpatrol/tweakpane-plugin-textarea",
 	"author": "panGenerator <contact@pangenerator.com>",
 	"license": "MIT",
+	"packageManager": "pnpm@9.10.0",
+	"main": "dist/tweakpane-plugin-textarea.js",
+	"types": "dist/types/index.d.ts",
 	"files": [
 		"dist"
 	],
-	"publishConfig": {
-		"access": "public"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/kitschpatrol/tweakpane-plugin-textarea.git"
-	},
 	"keywords": [
 		"npm-package",
 		"tweakpane",
@@ -37,6 +32,7 @@
 		"postversion": "git push --tags",
 		"prepare": "run-s clean build",
 		"prepublishOnly": "npm test",
+		"release": "bumpp --commit 'Release: %s' --tag '%s' && pnpm run build && pnpm publish --otp $(op read 'op://Personal/Npmjs/one-time password?attribute=otp')",
 		"server": "http-server -c-1 -o /test/browser.html",
 		"start": "run-p watch server",
 		"test": "eslint --ext .ts \"src/**/*.ts\"",
@@ -44,35 +40,39 @@
 		"watch:sass": "onchange --initial --kill \"src/sass/**/*.scss\" -- npm run build:dev",
 		"watch:ts": "onchange --initial --kill \"src/**/*.ts\" -- rollup --config rollup.config.js"
 	},
+	"peerDependencies": {
+		"tweakpane": "^4.0.0"
+	},
 	"dependencies": {
-		"@tweakpane/core": "^2.0.3"
+		"@tweakpane/core": "^2.0.4"
 	},
 	"devDependencies": {
-		"@rollup/plugin-node-resolve": "^13.3.0",
-		"@rollup/plugin-replace": "^2.4.2",
-		"@rollup/plugin-typescript": "^8.5.0",
-		"@typescript-eslint/eslint-plugin": "^5.62.0",
-		"@typescript-eslint/parser": "^5.62.0",
-		"autoprefixer": "^10.4.19",
+		"@rollup/plugin-node-resolve": "^15.2.3",
+		"@rollup/plugin-replace": "^5.0.7",
+		"@rollup/plugin-terser": "^0.4.4",
+		"@rollup/plugin-typescript": "^11.1.6",
+		"@typescript-eslint/eslint-plugin": "~8.5.0",
+		"@typescript-eslint/parser": "^8.5.0",
+		"autoprefixer": "^10.4.20",
+		"bumpp": "^9.5.2",
 		"eslint": "^8.57.0",
 		"eslint-config-prettier": "^8.10.0",
-		"eslint-plugin-prettier": "^3.4.1",
-		"eslint-plugin-simple-import-sort": "^7.0.0",
+		"eslint-plugin-prettier": "^5.2.1",
+		"eslint-plugin-simple-import-sort": "^12.1.1",
+		"glob": "^11.0.0",
 		"http-server": "^14.1.1",
 		"npm-run-all": "^4.1.5",
 		"onchange": "^7.1.0",
-		"postcss": "^8.4.38",
-		"prettier": "^2.8.8",
-		"rimraf": "^3.0.2",
-		"rollup": "^2.79.1",
+		"postcss": "^8.4.47",
+		"prettier": "^3.3.3",
+		"prettier-plugin-pkg": "^0.18.1",
+		"rimraf": "^5.0.10",
+		"rollup": "^4.21.3",
 		"rollup-plugin-cleanup": "^3.2.1",
-		"rollup-plugin-terser": "^7.0.2",
-		"sass": "^1.77.1",
-		"tweakpane": "^4.0.3",
-		"typescript": "^4.9.5"
+		"sass": "^1.78.0",
+		"typescript": "~5.6.2"
 	},
-	"peerDependencies": {
-		"tweakpane": "^4.0.3"
-	},
-	"packageManager": "pnpm@9.1.1+sha512.14e915759c11f77eac07faba4d019c193ec8637229e62ec99eefb7cf3c3b75c64447882b7c485142451ee3a6b408059cdfb7b7fa0341b975f12d0f7629c71195"
+	"publishConfig": {
+		"access": "public"
+	}
 }
