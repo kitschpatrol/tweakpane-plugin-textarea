@@ -1,6 +1,6 @@
 {
 	"name": "@kitschpatrol/tweakpane-plugin-textarea",
-	"version": "2.0.1-beta.2",
+	"version": "2.0.1-fork.1",
 	"type": "module",
 	"description": "Fork of @pangenerator/tweakpane-textarea-plugin with build optimizations.",
 	"repository": {
