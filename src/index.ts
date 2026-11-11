@@ -8,3 +8,5 @@ export const css: string = pluginCss
 
 // Export your plugin(s) as constant `plugins`
 export const plugins: TpPlugin[] = [TweakpaneTextareaPlugin]
+
+export type { TextareaPluginInputParams } from './plugin'
