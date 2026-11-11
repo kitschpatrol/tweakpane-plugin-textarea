@@ -35,6 +35,9 @@ export class TextAreaController implements Controller<TextAreaView> {
 			viewProps: this.viewProps,
 		})
 		this.view.inputElement.addEventListener('keyup', this.onInputChange_)
+		this.viewProps.handleDispose(() => {
+			this.view.inputElement.removeEventListener('keyup', this.onInputChange_)
+		})
 	}
 
 	private onInputChange_(event: KeyboardEvent): void {
