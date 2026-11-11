@@ -1,0 +1,39 @@
+// Import core styles
+@use '@tweakpane/core/lib/sass/tp';
+
+// Additional style for the plugin
+.#{tp.$prefix}-txtrv {
+	// Extend a general input view style
+	@extend %tp-input;
+
+	position: relative;
+	overflow: hidden;
+	display: block;
+	height: auto;
+	padding-bottom: 0;
+
+	&.#{tp.$prefix}-v-disabled {
+		opacity: 0.5;
+	}
+
+	& &_i {
+		resize: none;
+		box-sizing: border-box;
+		width: 100%;
+		min-width: 0;
+		height: 100%;
+		margin-bottom: -8px;
+		padding: 4px;
+		border: none;
+		border-radius: tp.cssVar('blade-border-radius');
+		font-family: var(--font-family);
+		font-size: 11px;
+		line-height: 16px;
+		color: tp.cssVar('input-fg');
+		background-color: tp.cssVar('input-bg');
+	}
+
+	& &_i:focus-visible {
+		outline: none;
+	}
+}

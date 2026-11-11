@@ -1,49 +1,48 @@
-import {ClassName, Value, View, ViewProps} from '@tweakpane/core';
+import type { Value, View, ViewProps } from '@tweakpane/core'
+import { ClassName } from '@tweakpane/core'
 
-interface Config {
-	value: Value<string>;
-	viewProps: ViewProps;
-	rows: number;
-	placeholder: string;
+type Config = {
+	placeholder: string
+	rows: number
+	value: Value<string>
+	viewProps: ViewProps
 }
 
-const className = ClassName('txtr');
+const className = ClassName('txtr')
 
 export class TextAreaView implements View {
-	public readonly inputElement: HTMLTextAreaElement;
-	public readonly element: HTMLElement;
-	private readonly value_: Value<string>;
+	public readonly element: HTMLElement
+	public readonly inputElement: HTMLTextAreaElement
+	private readonly value_: Value<string>
 
 	constructor(doc: Document, config: Config) {
-		this.onChange_ = this.onChange_.bind(this);
+		this.onChange_ = this.onChange_.bind(this)
 
-		this.element = doc.createElement('div');
-		this.element.classList.add(className());
-		config.viewProps.bindClassModifiers(this.element);
+		this.element = doc.createElement('div')
+		this.element.classList.add(className())
+		config.viewProps.bindClassModifiers(this.element)
 
-		//this.onChange_ = this.onChange_.bind(this);
+		const inputElement = doc.createElement('textarea')
+		inputElement.rows = config.rows
+		inputElement.cols = 22
+		inputElement.placeholder = config.placeholder
+		inputElement.classList.add(className('i'))
 
-		const inputElem = doc.createElement('textarea');
-		inputElem.rows = config.rows;
-		inputElem.cols = 22;
-		inputElem.placeholder = config.placeholder;
-		inputElem.classList.add(className('i'));
+		config.viewProps.bindDisabled(inputElement)
+		this.element.append(inputElement)
+		this.inputElement = inputElement
 
-		config.viewProps.bindDisabled(inputElem);
-		this.element.appendChild(inputElem);
-		this.inputElement = inputElem;
+		config.value.emitter.on('change', this.onChange_)
+		this.value_ = config.value
 
-		config.value.emitter.on('change', this.onChange_);
-		this.value_ = config.value;
-
-		this.refresh();
+		this.refresh()
 	}
 
 	public refresh(): void {
-		this.inputElement.value = this.value_.rawValue;
+		this.inputElement.value = this.value_.rawValue
 	}
 
 	private onChange_(): void {
-		this.refresh();
+		this.refresh()
 	}
 }

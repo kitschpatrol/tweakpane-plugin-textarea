@@ -1,10 +1,10 @@
-import type {TpPlugin} from 'tweakpane';
+import type { TpPlugin } from 'tweakpane'
+import { TweakpaneTextareaPlugin } from './plugin'
+import pluginCss from './styles/plugin.scss?inline'
 
-import {TweakpaneTextareaPlugin} from './plugin.js';
+export const id = 'textarea'
 
-export const id = 'textarea';
-
-export const css = '__css__';
+export const css: string = pluginCss
 
 // Export your plugin(s) as constant `plugins`
-export const plugins: TpPlugin[] = [TweakpaneTextareaPlugin];
+export const plugins: TpPlugin[] = [TweakpaneTextareaPlugin]

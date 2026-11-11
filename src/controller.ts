@@ -1,52 +1,46 @@
-import {Controller, forceCast, Value, ViewProps} from '@tweakpane/core';
-
-import {TextAreaView} from './view.js';
+import type { Controller, Value, ViewProps } from '@tweakpane/core'
+import { forceCast } from '@tweakpane/core'
+import { TextAreaView } from './view'
 /**
- * @hidden
+ * @ignore
  */
-export interface Config {
-	value: Value<string>;
-	viewProps: ViewProps;
-	rows: number;
-	placeholder: string;
+export type Config = {
+	placeholder: string
+	rows: number
+	value: Value<string>
+	viewProps: ViewProps
 }
 
 /**
- * @hidden
+ * @ignore
  */
 export class TextAreaController implements Controller<TextAreaView> {
-	public readonly value: Value<string>;
-	public readonly view: TextAreaView;
-	public readonly viewProps: ViewProps;
-	public readonly rows: number;
-	public readonly placeholder: string;
+	public readonly placeholder: string
+	public readonly rows: number
+	public readonly value: Value<string>
+	public readonly view: TextAreaView
+	public readonly viewProps: ViewProps
 
 	constructor(doc: Document, config: Config) {
-		this.onInputChange_ = this.onInputChange_.bind(this);
-		this.value = config.value;
-		this.viewProps = config.viewProps;
-		this.rows = config.rows;
-		this.placeholder = config.placeholder;
-
-		// console.log( this.rows )
+		this.onInputChange_ = this.onInputChange_.bind(this)
+		this.value = config.value
+		this.viewProps = config.viewProps
+		this.rows = config.rows
+		this.placeholder = config.placeholder
 
 		this.view = new TextAreaView(doc, {
+			placeholder: this.placeholder,
+			rows: this.rows,
 			value: this.value,
 			viewProps: this.viewProps,
-			rows: this.rows,
-			placeholder: this.placeholder,
-		});
-		this.view.inputElement.addEventListener('keyup', this.onInputChange_);
+		})
+		this.view.inputElement.addEventListener('keyup', this.onInputChange_)
 	}
 
-	private onInputChange_(e: KeyboardEvent): void {
-		//console.log( e.key )
-
-		//if( e.key === 'Enter' ){
-		const inputElem: HTMLInputElement = forceCast(e.currentTarget);
-		const value = inputElem.value;
-		this.value.rawValue = value;
-		this.view.refresh();
-		//}
+	private onInputChange_(event: KeyboardEvent): void {
+		const inputElement: HTMLInputElement = forceCast(event.currentTarget)
+		const { value } = inputElement
+		this.value.rawValue = value
+		this.view.refresh()
 	}
 }
