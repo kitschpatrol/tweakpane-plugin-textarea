@@ -5,13 +5,41 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [2.0.1-fork.2] - 2026-11-11
+
+### Added
+
+- Add a `/lite` export and minified lite bundle that import `@tweakpane/core` so projects can share it across plugins.
+- Export `TextareaPluginInputParams` from the package entry points.
+
+### Changed
+
+- Bundle `@tweakpane/core` in the default and minified ESM builds.
+- **Breaking:** Restrict package imports to the root, `/lite` and `/package.json` through an exports map, removing access to other package subpaths.
+- **Breaking:** Raise the browser JavaScript build target from ES2015 to ES2022.
+- **Breaking:** Restrict declared Node.js support to versions 18, 20, 22, 24, and 26 or newer.
+- Limit textarea outline suppression to `:focus-visible` states.
+
+### Fixed
+
+- Remove the textarea keyup listener when its binding is disposed so detached controls stop updating the bound value.
+
+### Documentation
+
+- Add installation and registration examples, explain bundled and `/lite` usage, and document fork differences, contribution guidance and template license attribution.
 
 ### Maintenance
 
 - Update the pinned pnpm version to 12.16.1.
 - Update the GitHub release and changelog actions.
 - Use an npm one-time password from 1Password when publishing releases.
+- Replace Rollup and separate declaration generation with tsdown and `@tsdown/css`, add publint and Are the Types Wrong checks, and retire legacy ZIP asset scripts.
+- Use `@kitschpatrol/shared-config` and `ksc` for linting, formatting, type checks and README generation, with matching VS Code tasks.
+- Replace the static browser test page with a Vite demo that loads source changes live.
+- Add Vitest and happy-dom tests for registration, parameter validation, styles, editing, refresh, disabled and hidden states, and disposal.
+- Add build, lint and test CI on Linux, macOS and Windows, schedule monthly dependency-update pull requests, and refresh setup, metadata-sync and fork-maintenance actions.
+- Generate changelog entries with chagent during versioning and build after the version bump before publishing.
+- Refresh development dependencies, including tsdown, Sass, Vite and Vitest, and update the pinned pnpm version to 12.18.0.
 
 ## [2.0.1-fork.1] - 2026-10-15
 
@@ -190,7 +218,6 @@ No notable changes.
 
 - Set up TypeScript/Rollup builds, Sass compilation, linting, formatting, watch mode, and versioned release archives.
 
-[Unreleased]: https://github.com/kitschpatrol/tweakpane-plugin-textarea/compare/2.0.1-fork.1...HEAD
 [0.1.6]: https://github.com/kitschpatrol/tweakpane-plugin-textarea/releases/tag/v0.1.6
 [0.1.8]: https://github.com/kitschpatrol/tweakpane-plugin-textarea/compare/v0.1.6...v0.1.8
 [0.1.9]: https://github.com/kitschpatrol/tweakpane-plugin-textarea/compare/v0.1.8...v0.1.9
@@ -208,3 +235,4 @@ No notable changes.
 [2.0.1-beta.1]: https://github.com/kitschpatrol/tweakpane-plugin-textarea/compare/v2.0.0...2.0.1-beta.1
 [2.0.1-beta.2]: https://github.com/kitschpatrol/tweakpane-plugin-textarea/compare/2.0.1-beta.1...2.0.1-beta.2
 [2.0.1-fork.1]: https://github.com/kitschpatrol/tweakpane-plugin-textarea/compare/2.0.1-beta.2...2.0.1-fork.1
+[2.0.1-fork.2]: https://github.com/kitschpatrol/tweakpane-plugin-textarea/compare/2.0.1-fork.1...2.0.1-fork.2
